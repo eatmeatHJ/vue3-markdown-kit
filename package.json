@@ -1,0 +1,112 @@
+{
+  "name": "vue3-markdown-kit",
+  "version": "0.1.0",
+  "description": "A small, auditable Markdown preview toolkit for Vue 3.5.",
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue3.5",
+    "markdown",
+    "preview",
+    "renderer",
+    "markdown-it"
+  ],
+  "license": "MIT",
+  "author": "eatmeatHJ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eatmeatHJ/vue3-markdown-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eatmeatHJ/vue3-markdown-kit/issues"
+  },
+  "homepage": "https://github.com/eatmeatHJ/vue3-markdown-kit#readme",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
+  "types": "./types/index.d.ts",
+  "files": [
+    "lib",
+    "types",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
+    },
+    "./preview": {
+      "types": "./types/preview.d.ts",
+      "import": "./lib/preview.js",
+      "require": "./lib/preview.cjs"
+    },
+    "./core": {
+      "types": "./types/core.d.ts",
+      "import": "./lib/core.js",
+      "require": "./lib/core.cjs"
+    },
+    "./theme/github": {
+      "types": "./types/theme-github.d.ts",
+      "import": "./lib/theme/github.js",
+      "require": "./lib/theme/github.cjs"
+    },
+    "./style/preview.css": "./lib/style/preview.css",
+    "./theme/style/github.css": "./lib/theme/style/github.css",
+    "./lib/preview": {
+      "types": "./types/preview.d.ts",
+      "import": "./lib/preview.js",
+      "require": "./lib/preview.cjs"
+    },
+    "./lib/preview.js": {
+      "types": "./types/preview.d.ts",
+      "import": "./lib/preview.js",
+      "require": "./lib/preview.cjs"
+    },
+    "./lib/theme/github": {
+      "types": "./types/theme-github.d.ts",
+      "import": "./lib/theme/github.js",
+      "require": "./lib/theme/github.cjs"
+    },
+    "./lib/theme/github.js": {
+      "types": "./types/theme-github.d.ts",
+      "import": "./lib/theme/github.js",
+      "require": "./lib/theme/github.cjs"
+    },
+    "./lib/style/preview.css": "./lib/style/preview.css",
+    "./lib/theme/style/github.css": "./lib/theme/style/github.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node --test && npm run test:types",
+    "test:types": "tsc -p tsconfig.types.json",
+    "check": "npm run test && npm pack --dry-run",
+    "prepublishOnly": "npm run check"
+  },
+  "dependencies": {
+    "dompurify": "3.4.15",
+    "highlight.js": "11.11.1",
+    "markdown-it": "14.3.0",
+    "markdown-it-attrs": "5.0.1"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1",
+    "jsdom": "26.0.0",
+    "typescript": "7.0.2",
+    "vue": "3.5.38"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

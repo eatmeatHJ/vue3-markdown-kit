@@ -1,0 +1,23 @@
+.vue-markdown-kit-preview {
+  box-sizing: border-box;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.vue-markdown-kit-preview *,
+.vue-markdown-kit-preview *::before,
+.vue-markdown-kit-preview *::after {
+  box-sizing: inherit;
+}
+
+.vue-markdown-kit-preview img {
+  max-width: 100%;
+}
+
+.vue-markdown-kit-preview pre {
+  overflow: auto;
+}
+
+.vue-markdown-kit-preview .vmk-markdown-body {
+  line-height: 1.6;
+}
