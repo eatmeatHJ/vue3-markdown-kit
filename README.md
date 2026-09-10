@@ -172,6 +172,13 @@ npm run check
 The generated `lib` directory is committed so the package can also be
 installed directly from GitHub.
 
+## Release
+
+Publishing is automated with npm Trusted Publishing. After the trusted
+publisher is configured for `.github/workflows/publish.yml`, publish a GitHub
+Release whose tag matches the version in `package.json`. The workflow runs the
+full package checks and skips versions that already exist on npm.
+
 ## License
 
 MIT. See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).

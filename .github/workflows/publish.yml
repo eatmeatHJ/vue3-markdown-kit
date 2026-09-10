@@ -1,0 +1,59 @@
+name: Publish Package
+
+on:
+  workflow_dispatch:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run package checks
+        run: npm run check
+
+      - name: Verify release tag
+        if: github.event_name == 'release'
+        shell: bash
+        run: |
+          expected_tag="v$(node -p "require('./package.json').version")"
+          if [[ "$GITHUB_REF_NAME" != "$expected_tag" ]]; then
+            echo "Release tag $GITHUB_REF_NAME does not match package version $expected_tag."
+            exit 1
+          fi
+
+      - name: Check npm registry
+        id: registry
+        shell: bash
+        run: |
+          package_spec="$(node -p "require('./package.json').name + '@' + require('./package.json').version")"
+          if npm view "$package_spec" version >/dev/null 2>&1; then
+            echo "already_published=true" >> "$GITHUB_OUTPUT"
+            echo "$package_spec is already published; skipping publish."
+          else
+            echo "already_published=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish to npm
+        if: steps.registry.outputs.already_published != 'true'
+        run: npm publish --ignore-scripts --access public
