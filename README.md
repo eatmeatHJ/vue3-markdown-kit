@@ -161,7 +161,34 @@ step. Applications that do not need raw HTML can pass `html: false` when
 creating a custom renderer. Keep all runtime dependencies updated and apply
 an application-level Markdown input length limit.
 
-## Development
+## Documentation and live examples
+
+[Documentation and live examples](https://eatmeatHJ.github.io/vue3-markdown-kit/)
+
+The repository includes a documentation site with editable Markdown examples,
+syntax highlighting, image-click events, and sanitized HTML output. See the
+[Chinese quick-start and deployment guide](docs/guide.md).
+
+```sh
+npm ci
+npm run build
+npm run docs:dev
+```
+
+Open `http://127.0.0.1:4173`. To validate and build the static site:
+
+```sh
+npm run docs:check
+npm run docs:build
+```
+
+The output is `docs-dist/`. Enable **Settings → Pages → Source → GitHub Actions**
+and run the **Deploy documentation** workflow after pushing these files to
+`main`. Subsequent pushes to `main` deploy automatically; pull requests only
+build the site. With the default GitHub Pages domain, the site URL will be
+`https://eatmeatHJ.github.io/vue3-markdown-kit/`.
+
+## Package development
 
 ```sh
 npm ci

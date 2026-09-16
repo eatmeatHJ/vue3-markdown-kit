@@ -85,6 +85,9 @@
     "**/*.css"
   ],
   "scripts": {
+    "docs:dev": "node scripts/docs.mjs --serve",
+    "docs:build": "node scripts/docs.mjs",
+    "docs:check": "tsc -p docs/tsconfig.json",
     "build": "node scripts/build.mjs",
     "test": "npm run build && node --test && npm run test:types",
     "test:types": "tsc -p tsconfig.types.json",

@@ -1,0 +1,49 @@
+:root { font-family: Inter, "Segoe UI", "Microsoft JhengHei", sans-serif; color: #172f28; background: #f5f7f4; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: #17684d; text-underline-offset: 4px; }
+button, textarea { font: inherit; }
+button, a, summary { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #299d74; outline-offset: 4px; }
+.site { max-width: 1240px; margin: auto; padding: 0 36px; }
+.header { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 26px 0; border-bottom: 1px solid #d7e0d9; }
+.brand { font-size: 18px; font-weight: 750; text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px; }
+nav a { text-decoration: none; }
+.hero { padding: 32px 0 24px; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; color: #377761; }
+.hero h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.25; margin: 12px 0; }
+.intro { max-width: 590px; line-height: 1.9; color: #54665d; }
+.install { display: inline-block; background: #e5eee8; padding: 14px 20px; border-radius: 8px; margin-top: 12px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.section-heading h2 { font-size: 22px; }
+.section-heading span { font-size: 13px; color: #52675d; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 18px; }
+button { cursor: pointer; padding: 9px 15px; border: 1px solid #ccd8cf; border-radius: 6px; background: #fff; color: #264e3f; }
+button[aria-pressed="true"] { background: #17684d; border-color: #17684d; color: white; }
+button:hover { border-color: #17684d; }
+.reset { margin-left: auto; }
+.workspace { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #d2ded5; border-radius: 10px; background: #fff; overflow: hidden; }
+.editor-panel, .preview-panel { min-width: 0; }
+.editor-panel { border-right: 1px solid #d2ded5; }
+.panel-title { display: block; padding: 13px 20px; background: #edf2ed; font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+textarea { display: block; width: 100%; height: 470px; resize: vertical; border: 0; padding: 24px; color: #273c32; background: #fbfcfa; font: 14px/1.8 Consolas, monospace; }
+.preview-panel > .vue-markdown-kit-preview { height: 470px; overflow: auto; padding: 4px; }
+.status { overflow-wrap: anywhere; padding: 12px 0; font-size: 12px; color: #506658; }
+details { border: 1px solid #d2ded5; border-radius: 8px; padding: 14px 18px; background: #fff; }
+summary { cursor: pointer; font-size: 14px; }
+.html-output { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 300px; overflow: auto; font-size: 12px; }
+.document { margin-top: 48px; padding: 24px; border: 1px solid #d2ded5; border-radius: 10px; background: #fff; scroll-margin-top: 24px; }
+.document > .eyebrow { margin-left: 24px; }
+footer { padding: 40px 0; font-size: 13px; color: #52675d; }
+@media (max-width: 760px) {
+  .site { padding: 0 18px; }
+  .header { align-items: flex-start; flex-direction: column; gap: 18px; }
+  nav { gap: 18px; }
+  .hero { padding: 24px 0; }
+  .workspace { grid-template-columns: 1fr; }
+  .editor-panel { border-right: 0; border-bottom: 1px solid #d2ded5; }
+  textarea, .preview-panel > .vue-markdown-kit-preview { height: 350px; }
+  .document { padding: 8px; }
+  .section-heading span { display: none; }
+}
